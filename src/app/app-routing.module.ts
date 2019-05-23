@@ -6,6 +6,7 @@ import { ErrorComponent } from './error/error.component';
 import { ListTodosComponent } from './list-todos/list-todos.component';
 import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
+import { LogoutComponent } from './logout/logout.component';
 
 // Web Application Routes
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'todos', component: ListTodosComponent},
   { path: 'menu', component: MenuComponent},
   { path: 'footer', component: FooterComponent},
+  { path: 'logout', component: LogoutComponent},
   { path: '**', component: ErrorComponent} // If not in routes, show error.
 ];
 

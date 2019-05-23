@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../app.component'; 
 import { ActivatedRoute } from '@angular/router';
+import { HardcodedAuthenticationService } from '../service/hardcoded-authentication.service';
 
 @Component({
   selector: 'app-welcome',
@@ -12,15 +13,19 @@ export class WelcomeComponent implements OnInit {
 
   // Member Variables
   username = '';
+  isLoggedIn = false;
   biz = null;
-  
+
   // Activated Router
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute,
+    private hardCodedAuthentictionService: HardcodedAuthenticationService) {
+  }
 
   // Implementing method
   ngOnInit() : void {
     // snapshot - snapshot of parameters in const
     this.username = this.route.snapshot.params['name'];
+    this.isLoggedIn = this.hardCodedAuthentictionService.isUserLoggedIn();
   }
 }
 
