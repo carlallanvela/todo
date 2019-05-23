@@ -7,17 +7,22 @@ import { ListTodosComponent } from './list-todos/list-todos.component';
 import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { LogoutComponent } from './logout/logout.component';
+import { RouteGuardService } from './service/route-guard.service';
 
 // Web Application Routes
 const routes: Routes = [
-  { path: '', component: LoginComponent}, // Default
-  { path: 'login', component: LoginComponent},
-  { path: 'welcome/:name', component: WelcomeComponent}, // Expects a parameter :name
-  { path: 'todos', component: ListTodosComponent},
-  { path: 'menu', component: MenuComponent},
-  { path: 'footer', component: FooterComponent},
-  { path: 'logout', component: LogoutComponent},
-  { path: '**', component: ErrorComponent} // If not in routes, show error.
+  // Default, implement route guard service.
+  { path: '', component: LoginComponent }, 
+  { path: 'login', component: LoginComponent },
+  // Expects a parameter :name, implements route guard service.
+  { path: 'welcome/:name', component: WelcomeComponent, canActivate: [RouteGuardService]}, 
+  // Implements route guard service.
+  { path: 'todos', component: ListTodosComponent, canActivate: [RouteGuardService]},
+  { path: 'menu', component: MenuComponent },
+  { path: 'footer', component: FooterComponent },
+  { path: 'logout', component: LogoutComponent },
+  // If not in routes, show error.
+  { path: '**', component: ErrorComponent } 
 ];
 
 @NgModule({
