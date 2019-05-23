@@ -8,5 +8,6 @@ if (environment.production) {
   enableProdMode();
 }
 
+// App Module is the main module that is loaded in index.html
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));

@@ -1,0 +1,19 @@
+<table border="1">
+  <caption>My Todo's</caption>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Target Date</th>
+      <th>Is Completed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Java equivalent for (Todo todo: todos) -->
+    <tr *ngFor="let todo of todos">
+      <td>{{todo.description}}</td>
+      <!-- Pipes: Format date. Convert field to another format -->
+      <td>{{todo.targetDate | date | lowercase}}</td>
+      <td>{{todo.done}}</td>
+    </tr>
+  </tbody>
+</table>

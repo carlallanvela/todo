@@ -1,0 +1,16 @@
+<!-- *ngIf: directive that shows/hides depending on value. -->
+<small *ngIf='invalidLogin'>{{errorMessage}}</small>
+
+<div>
+User Name : <input type="text" name="username" [(ngModel)]="username"> 
+Password : <input type="password" name="password" [(ngModel)]="password"> 
+
+<button (click)=handleLogin()>Login</button>
+</div>
+
+<!-- Types of Data Binding:
+1) Interpolation: Ties up view to value of property.
+  User Name : {{username}}
+2) Event Binding: Using function inside ts.
+  <button (click)=handleLogin()>Login</button>
+3) 2 Way Data Binding: Using ngModel seen above. This is an example of Angular Directive.-->
