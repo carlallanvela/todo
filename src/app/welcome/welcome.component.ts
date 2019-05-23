@@ -11,7 +11,6 @@ import { ActivatedRoute } from '@angular/router';
 export class WelcomeComponent implements OnInit {
 
   // Member Variables
-  message = 'Welcome ';
   username = '';
   biz = null;
   

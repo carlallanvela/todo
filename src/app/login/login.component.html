@@ -1,11 +1,15 @@
-<!-- *ngIf: directive that shows/hides depending on value. -->
-<p class="error"><small *ngIf='invalidLogin'>{{errorMessage}}</small></p> 
+<h1>Login</h1>
 
-<div>
-User Name : <input type="text" name="username" [(ngModel)]="username"> 
-Password : <input type="password" name="password" [(ngModel)]="password"> 
+<div class="container">
+  <!-- *ngIf: directive that shows/hides depending on value. -->
+  <div class="alert-warning" *ngIf='invalidLogin'>{{errorMessage}}</div>
 
-<button (click)=handleLogin()>Login</button>
+  <div>
+    User Name : <input type="text" name="username" [(ngModel)]="username">
+    Password : <input type="password" name="password" [(ngModel)]="password">
+
+    <button (click)=handleLogin() class="btn btn-success">Login</button>
+  </div>
 </div>
 
 <!-- Types of Data Binding:
