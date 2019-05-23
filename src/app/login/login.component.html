@@ -1,5 +1,5 @@
 <!-- *ngIf: directive that shows/hides depending on value. -->
-<small *ngIf='invalidLogin'>{{errorMessage}}</small>
+<p class="error"><small *ngIf='invalidLogin'>{{errorMessage}}</small></p> 
 
 <div>
 User Name : <input type="text" name="username" [(ngModel)]="username"> 
