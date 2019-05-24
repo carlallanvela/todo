@@ -8,6 +8,7 @@ import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { LogoutComponent } from './logout/logout.component';
 import { RouteGuardService } from './service/route-guard.service';
+import { TodoComponent } from './todo/todo.component';
 
 // Web Application Routes
 const routes: Routes = [
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'menu', component: MenuComponent },
   { path: 'footer', component: FooterComponent },
   { path: 'logout', component: LogoutComponent },
+  { path: 'todos/:id', component: TodoComponent, canActivate: [RouteGuardService]},
   // If not in routes, show error.
   { path: '**', component: ErrorComponent } 
 ];
