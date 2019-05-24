@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../app.component'; 
 import { ActivatedRoute } from '@angular/router';
 import { HardcodedAuthenticationService } from '../service/hardcoded-authentication.service';
+import { WelcomeDataService } from '../service/data/welcome-data.service';
 
 @Component({
   selector: 'app-welcome',
@@ -14,18 +15,30 @@ export class WelcomeComponent implements OnInit {
   // Member Variables
   username = '';
   isLoggedIn = false;
+  welcomeMessageFromService:string;
   biz = null;
 
   // Activated Router
   constructor(private route: ActivatedRoute,
-    private hardCodedAuthentictionService: HardcodedAuthenticationService) {
+    private service: WelcomeDataService) {
   }
 
   // Implementing method
   ngOnInit() : void {
     // snapshot - snapshot of parameters in const
     this.username = this.route.snapshot.params['name'];
-    this.isLoggedIn = this.hardCodedAuthentictionService.isUserLoggedIn();
+  }
+
+  getWelcomeMessage() {
+    // Async call. i.e. execute request and do not wait for 
+    // response. We are not keeping the thread hanging.
+    this.service.executeHelloWorldBeanService().subscribe(
+      response => this.handleSuccessfulResponse(response)
+    );
+  }
+
+  handleSuccessfulResponse(response) {
+    this.welcomeMessageFromService = response.message;
   }
 }
 
