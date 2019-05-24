@@ -1,11 +1,13 @@
 <h1> My Todo's </h1>
+<div class="alert-success" *ngIf='message'>{{message}}</div>
 <div class="container">
   <table class="table">
     <thead>
       <tr>
         <th>Description</th>
         <th>Target Date</th>
-        <th>Is Completed</th>
+        <th>Is Completed?</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -15,6 +17,7 @@
         <!-- Pipes: Format date. Convert field to another format -->
         <td>{{todo.targetDate | date | lowercase}}</td>
         <td>{{todo.done}}</td>
+        <td><button (click)="deleteTodo(todo.id)" class="btn btn-warning">Delete</button></td>
       </tr>
     </tbody>
   </table>

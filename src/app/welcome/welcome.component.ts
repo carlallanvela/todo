@@ -13,7 +13,7 @@ import { WelcomeDataService } from '../service/data/welcome-data.service';
 export class WelcomeComponent implements OnInit {
 
   // Member Variables
-  username = '';
+  name = '';
   isLoggedIn = false;
   welcomeMessageFromService:string;
   biz = null;
@@ -26,19 +26,31 @@ export class WelcomeComponent implements OnInit {
   // Implementing method
   ngOnInit() : void {
     // snapshot - snapshot of parameters in const
-    this.username = this.route.snapshot.params['name'];
+    this.name = this.route.snapshot.params['name'];
   }
 
   getWelcomeMessage() {
     // Async call. i.e. execute request and do not wait for 
     // response. We are not keeping the thread hanging.
     this.service.executeHelloWorldBeanService().subscribe(
-      response => this.handleSuccessfulResponse(response)
+      response => this.handleSuccessfulResponse(response),
+      error => this.handleErrorResponse(error)
+    );
+  }
+
+  getWelcomeMessageWithParameter() {
+    this.service.executeHelloWorldServiceWithParameter(this.name).subscribe(
+      response => this.handleSuccessfulResponse(response),
+      error => this.handleErrorResponse(error)
     );
   }
 
   handleSuccessfulResponse(response) {
     this.welcomeMessageFromService = response.message;
+  }
+
+  handleErrorResponse(error) {
+    this.welcomeMessageFromService = error.error.message;
   }
 }
 

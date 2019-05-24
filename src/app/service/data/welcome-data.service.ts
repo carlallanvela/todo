@@ -18,4 +18,9 @@ export class WelcomeDataService {
     // We are expecting HelloWorldBean response.
     return this.http.get<HelloWorldBean>('http://localhost:8080/hello-world-bean');
   }
+
+  executeHelloWorldServiceWithParameter(name) {
+    // Using ticks `` is best practice.
+    return this.http.get<HelloWorldBean>(`http://localhost:8080/hello-world/path-variable/${name}`);
+  }
 }
