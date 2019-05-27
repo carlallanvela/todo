@@ -19,21 +19,22 @@ export class WelcomeDataService {
   }
 
   executeHelloWorldServiceWithParameter(name) {
-    let basicAuthHeaderString = this.createBasicAuthenticationHttpHeader();
-    let headers = new HttpHeaders({
-      Authorization: basicAuthHeaderString
-    })
+    // let basicAuthHeaderString = this.createBasicAuthenticationHttpHeader();
+    // let headers = new HttpHeaders({
+    //   Authorization: basicAuthHeaderString
+    // })
     
     return this.http.get<HelloWorldBean>(
       `http://localhost:8080/hello-world/path-variable/${name}`,
-      {headers});
+      //{headers}
+      );
   }
 
-  createBasicAuthenticationHttpHeader() {
-    let username = 'cvela';
-    let password = 'dummy';
-    // Base 64 Encoding
-    let basicAuthHeaderString = 'Basic ' + window.btoa(username + ':' + password);
-    return basicAuthHeaderString;
-  }
+  // createBasicAuthenticationHttpHeader() {
+  //   let username = 'cvela';
+  //   let password = 'dummy';
+  //   // Base 64 Encoding
+  //   let basicAuthHeaderString = 'Basic ' + window.btoa(username + ':' + password);
+  //   return basicAuthHeaderString;
+  // }
 }
