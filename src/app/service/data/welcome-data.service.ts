@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 export class HelloWorldBean {
@@ -15,12 +15,25 @@ export class WelcomeDataService {
   ) { }
 
   executeHelloWorldBeanService() {
-    // We are expecting HelloWorldBean response.
     return this.http.get<HelloWorldBean>('http://localhost:8080/hello-world-bean');
   }
 
   executeHelloWorldServiceWithParameter(name) {
-    // Using ticks `` is best practice.
-    return this.http.get<HelloWorldBean>(`http://localhost:8080/hello-world/path-variable/${name}`);
+    let basicAuthHeaderString = this.createBasicAuthenticationHttpHeader();
+    let headers = new HttpHeaders({
+      Authorization: basicAuthHeaderString
+    })
+    
+    return this.http.get<HelloWorldBean>(
+      `http://localhost:8080/hello-world/path-variable/${name}`,
+      {headers});
+  }
+
+  createBasicAuthenticationHttpHeader() {
+    let username = 'cvela';
+    let password = 'dummy';
+    // Base 64 Encoding
+    let basicAuthHeaderString = 'Basic ' + window.btoa(username + ':' + password);
+    return basicAuthHeaderString;
   }
 }
