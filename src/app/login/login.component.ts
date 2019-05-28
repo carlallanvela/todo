@@ -8,7 +8,6 @@ import { BasicAuthenticationService } from '../service/basic-authentication.serv
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-/** LoginComponent Class */
 export class LoginComponent implements OnInit {
 
   username = 'cvela';

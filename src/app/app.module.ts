@@ -1,10 +1,8 @@
-// Built in Modules in Angular
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 
-// My Modules
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { LoginComponent } from './login/login.component';
@@ -36,7 +34,10 @@ import { HttpIntercepterBasicAuthService } from './service/http/http-intercepter
     HttpClientModule
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterBasicAuthService, multi: true}
+    {
+      provide: HTTP_INTERCEPTORS, 
+      useClass: HttpIntercepterBasicAuthService, multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

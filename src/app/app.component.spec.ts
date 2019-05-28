@@ -13,7 +13,7 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent,
         MenuComponent,
-        FooterComponent
+        FooterComponent,
       ],
     }).compileComponents();
   }));
