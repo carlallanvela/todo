@@ -31,7 +31,7 @@ import { HttpIntercepterBasicAuthService } from './service/http/http-intercepter
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,    
   ],
   providers: [
     {

@@ -18,7 +18,8 @@ export class LoginComponent implements OnInit {
   // Router (Dependency of the LoginComponent)
   // Dependency Injection: If I need it, it should be given to me.
   // If it is passed as a constructor, it will be used as a Member Variable.
-  constructor(private router: Router,
+  constructor(
+    private router: Router,
     private hardcodedAuthenticationService: HardcodedAuthenticationService,
     private basicAuthenticationService: BasicAuthenticationService) {
   }

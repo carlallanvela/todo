@@ -1,7 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ListTodosComponent } from './list-todos.component';
-import { TodoDataService } from '../service/data/todo-data.service';
+import { HttpClientModule } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('ListTodosComponent', () => {
   let component: ListTodosComponent;
@@ -9,6 +11,7 @@ describe('ListTodosComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [RouterTestingModule, HttpClientModule],
       declarations: [ ListTodosComponent ]
     })
     .compileComponents();
@@ -20,7 +23,7 @@ describe('ListTodosComponent', () => {
     fixture.detectChanges();
   });
 
-  // it('should create', () => {
-  //   expect(component).toBeTruthy();
-  // });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
 });
