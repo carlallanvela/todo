@@ -33,6 +33,8 @@ export class BasicAuthenticationService {
       );   
   }
 
+  
+
   getAuthenticatedUser() {
     return sessionStorage.getItem(AUTHENTICATED_USER);
   }
